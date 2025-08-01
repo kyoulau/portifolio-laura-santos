@@ -1,7 +1,15 @@
 function Contato() {
   return (
-    <div>
-      <h1>Contato</h1>
+    <div className="bg-neutral-800 min-h-screen flex items-center justify-center">
+      
+      <div
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm"
+          aria-hidden="true"
+        >
+          <h1 className="text-white">Contato</h1>
+
+        </div>
+      
     </div>
   )
 }

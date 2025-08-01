@@ -4,9 +4,13 @@ import Contato from "./pages/Contato"
 import Projetos from "./pages/Projetos"
 import Sobre from "./pages/Sobre"
 import Home from "./pages/Home"
+import { Layout } from "./components/Layout"
 
 const router = createBrowserRouter([
   {
+    element: <Layout />,
+    children:  [
+        {
     path: "/",
     element: <Home />,
   },
@@ -26,6 +30,8 @@ const router = createBrowserRouter([
     path: "*",
     element: <NotFound />,
   
+  }
+    ]
   }
 ])
 
