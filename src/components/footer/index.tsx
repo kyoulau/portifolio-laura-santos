@@ -1,19 +1,17 @@
-export function Footer() {
+function Footer() {
+  const currentYear = new Date().getFullYear(); // Obtém o ano atual dinamicamente
+
   return (
-    <footer className="w-full bg-slate-200 py-4">
-      <div className="text-center text-sm text-gray-600">
-        <p>
-          Feito com ❤️ por Laura |{" "}
-          <a
-            href="https://github.com/kyoulau" 
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-bold hover:underline"
-          >
-            GitHub
-          </a>
+    // Footer principal com fundo escuro, texto claro e centralizado
+    <footer className="bg-neutral-900 text-neutral-400 py-6 text-center font-inter">
+      <div className="container mx-auto px-6">
+        {/* Texto de copyright com o ano atual e seu nome */}
+        <p className="text-sm md:text-base">
+          &copy; {currentYear} Laura Santos. Todos os direitos reservados.
         </p>
       </div>
     </footer>
   );
 }
+
+export default Footer;
