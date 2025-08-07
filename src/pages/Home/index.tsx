@@ -6,8 +6,8 @@ import {
   MonitorDot, Server, LayoutDashboard, Terminal, Package, Cpu, Zap, Settings, 
   Globe, Type, Smartphone, Rocket, Monitor, Coffee 
 } from 'lucide-react';
-import Footer from '../../components/footer';
 import { Link } from 'react-router-dom';
+import Card from '../../components/card';
 
 function Home() {
   const [isHovering, setIsHovering] = useState(false);
@@ -43,17 +43,38 @@ function Home() {
     { name: 'MySQL', icon: <Database size={30} /> },
   ];
 
+    const projects = [
+    {
+      title: "Projeto de E-commerce",
+      description: "Desenvolvimento de uma plataforma de e-commerce completa com carrinho de compras, sistema de pagamento e gestão de produtos.",
+      imageUrl: "https://placehold.co/600x400/4F46E5/FFFFFF?text=E-commerce",
+      projectUrl: "https://github.com/seu-usuario/seu-projeto-ecommerce"
+    },
+    {
+      title: "Aplicação de Tarefas",
+      description: "Uma aplicação simples e intuitiva para gerenciar tarefas diárias, utilizando React e uma API RESTful para persistência de dados.",
+      imageUrl: "https://placehold.co/600x400/2A4365/FFFFFF?text=To-Do-App",
+      projectUrl: "https://github.com/seu-usuario/seu-projeto-to-do"
+    },
+    {
+      title: "Blog Pessoal",
+      description: "Criação de um blog pessoal responsivo, onde compartilho artigos sobre tecnologia e programação, com sistema de comentários.",
+      imageUrl: "https://placehold.co/600x400/9F7AEA/FFFFFF?text=Blog+Pessoal",
+      projectUrl: "https://github.com/seu-usuario/seu-projeto-blog"
+    },
+  ];
+
   return (
-    <div className="bg-neutral-800 min-h-screen flex items-center justify-center font-inter">
+    <div className="bg-neutral-800 min-h-screen font-inter">
       <div 
         className="fixed inset-0 bg-black/60 backdrop-blur-sm"
         aria-hidden="true" 
       />
 
-      <div className="relative z-10 p-8 md:p-12 lg:p-16 flex flex-col md:flex-row items-center justify-center gap-12 max-w-5xl w-full">
+      <div className="relative z-10 p-8 md:p-12 lg:p-16 flex flex-col items-center justify-start max-w-7xl mx-auto" >
         
         <div
-          className="relative transition-transform duration-300 hover:scale-105"
+          className="relative transition-transform duration-300 hover:scale-105 m-2.5 p-8"
           onMouseEnter={() => setIsHovering(true)}
           onMouseLeave={() => setIsHovering(false)}
         >
@@ -102,7 +123,7 @@ function Home() {
               </a>
           </div>
 
-          <div className="mt-10 flex gap-8">
+          <div className="mt-10 flex flex-col md:flex-row gap-8">
             <button
               onClick={() => setShowSkills(!showSkills)}
               className="px-6 py-3 bg-purple-800 text-white font-semibold rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-75 transition-all duration-300 flex items-center justify-center mx-auto md:mx-0"
@@ -115,11 +136,11 @@ function Home() {
             </button>
 
             <div className='flex items-center'>
-              <Link to="/projetos-bala"> About me</Link>
+              <Link to="/sobre"  className=" hover:text-purple-300 transition-colors duration-300"> About me</Link>
             </div>
           </div>
 
-                    <div 
+            <div 
             className={`mt-8 transition-all duration-500 ease-in-out overflow-hidden ${
               showSkills ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
             }`}
@@ -131,7 +152,7 @@ function Home() {
                   key={index} 
                   className="flex flex-col items-center justify-center p-4 bg-neutral-700 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
                 >
-                  <div className="text-purple-400 mb-2"> {/* Ícones em roxo */}
+                  <div className="text-purple-400 mb-2">
                     {skill.icon}
                   </div>
                   <p className="text-sm text-neutral-200">{skill.name}</p>
@@ -139,10 +160,29 @@ function Home() {
               ))}
             </div>
           </div>
+          <div>
+
+          </div>
 
         </div>
+        <section className="w-full mt-16 mb-16">
+          <div className="container mx-auto">
+            <h2 className="text-4xl font-bold text-center text-white mb-10 font-serif">Meus Principais Projetos</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {projects.map((project, index) => (
+                <Card
+                  key={index}
+                  title={project.title}
+                  description={project.description}
+                  imageUrl={project.imageUrl}
+                  projectUrl={project.projectUrl}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
       </div>
-      {/* <Footer/> */}
+      
     </div>
   );
 }
