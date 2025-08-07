@@ -5,7 +5,7 @@ import PonderaLegal from './../../assets/PonderaLegal.png'
 import GCP from './../../assets/GCP.png'
 import Java from './../../assets/Java.png'
 import { 
-  Github, Linkedin, ChevronDown, Code, Database, Cloud, GitBranch, Figma, 
+  Github, Linkedin, ChevronDown, Code, Database, Cloud, GitBranch, 
   MonitorDot, Server, LayoutDashboard, Terminal, Package, Cpu, Zap, Settings, 
   Globe, Type, Smartphone, Rocket, Monitor, Coffee,
 } from 'lucide-react';

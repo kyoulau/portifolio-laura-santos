@@ -8,23 +8,28 @@ const Timeline = () => {
         },
         {
             year: 2023,
-            title: "Especialização em UI/UX",
-            description: "Concluí um curso intensivo em Design de Interface e Experiência do Usuário, aplicando os conhecimentos em projetos internos."
-        },
-        {
-            year: 2022,
-            title: "Lançamento do Projeto X",
-            description: "Liderei o desenvolvimento do Projeto X, uma plataforma inovadora que impactou mais de 10.000 usuários."
+            title: "Bachelor in Information Systems",
+            description: "I started my undergraduate degree in Information Systems at PUCPR with a 100% PROUNI scholarship."
         },
         {
             year: 2024,
-            title: "Transição para Tech Lead",
-            description: "Promovido a Tech Lead, responsável por guiar a equipe de desenvolvimento e definir arquiteturas de software."
+            title: "FullStack developer at Cheers",
+            description: "My first experience in the field was as a member of the system's code maintenance team."
+        },
+        {
+            year: 2024,
+            title: "Monitor at PUCPR",
+            description: "Class monitor for Database classes at PUCPR University"
+        },
+        {
+            year: 2024,
+            title: "Information Systems Academic Center",
+            description: "During the founding of our academic center, I was vice-secretary, and I am currently the director of events."
         },
         {
             year: 2025,
-            title: "Novos Desafios e Aprendizados",
-            description: "Atualmente, estou explorando novas tecnologias e buscando oportunidades para aplicar minhas habilidades em projetos desafiadores."
+            title: "Software Developer at Volvo Group",
+            description: "In my current internship, I work with REST APIs using NestJS and microservices."
         }
     ];
 

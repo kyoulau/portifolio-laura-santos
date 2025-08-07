@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Timeline from "../../components/timeline";
 
 function Sobre() {
@@ -23,6 +22,14 @@ function Sobre() {
         </div>
         <h1 className="text-2xl font-serif font-bold mb-4 text-white underline">My Timeline</h1>
         <Timeline/>
+        <h1 className="text-2xl font-serif font-bold mb-4 text-white underline">My Goals for the future Laura</h1>
+        <div className="text-lg leading-relaxed">
+          <p className="mb-4 pt-8 font-serif">Get AWS certified</p>
+          <p className="mb-4 font-serif">Achieve  Dean's List prize</p>
+          <p className="mb-4 font-serif">Reach B1 level in German</p>
+          <p className="mb-4 font-serif">Finish my degree</p>
+        
+        </div>
       </div>
       
       <div>
