@@ -2,12 +2,12 @@
 const Timeline = () => {
     const Data = [
         {
-            year: 2018,
-            title: "Início da Jornada Profissional",
-            description: "Comecei minha carreira como Desenvolvedor Júnior em uma startup de tecnologia, focado em desenvolvimento web front-end."
+            year: 2022,
+            title: "The birth of a heroine.",
+            description: "I started a comprehensive computer course and discovered my affinity for computing. My curiosity led me to explore front-end development with HTML and CSS for my personal blog on Tumblr."
         },
         {
-            year: 2020,
+            year: 2023,
             title: "Especialização em UI/UX",
             description: "Concluí um curso intensivo em Design de Interface e Experiência do Usuário, aplicando os conhecimentos em projetos internos."
         },

@@ -21,7 +21,7 @@ function Sobre() {
           <p className="mb-4 font-serif">{aboutText2}</p>
         
         </div>
-        <h1 className="text-2xl font-serif font-bold mb-4 text-white underline">Minhas experiências</h1>
+        <h1 className="text-2xl font-serif font-bold mb-4 text-white underline">My Timeline</h1>
         <Timeline/>
       </div>
       

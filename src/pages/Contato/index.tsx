@@ -143,7 +143,6 @@ function Contato() {
             <textarea
               id="mensagem"
               name="mensagem"
-              rows="4"
               required
               value={formData.mensagem}
               onChange={handleChange}

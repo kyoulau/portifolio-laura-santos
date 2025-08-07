@@ -1,13 +1,18 @@
-import React, { useState } from 'react';
 import blythe  from './../../assets/blythe.png'
 import normal from './../../assets/normal.jpeg'
+import imagemLaura from './../../assets/imagemLaura.jpeg'
+import PonderaLegal from './../../assets/PonderaLegal.png'
+import GCP from './../../assets/GCP.png'
+import Java from './../../assets/Java.png'
 import { 
   Github, Linkedin, ChevronDown, Code, Database, Cloud, GitBranch, Figma, 
   MonitorDot, Server, LayoutDashboard, Terminal, Package, Cpu, Zap, Settings, 
-  Globe, Type, Smartphone, Rocket, Monitor, Coffee 
+  Globe, Type, Smartphone, Rocket, Monitor, Coffee,
 } from 'lucide-react';
+import { FaSpotify, FaMedium } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import Card from '../../components/card';
+import { useState } from 'react';
 
 function Home() {
   const [isHovering, setIsHovering] = useState(false);
@@ -16,7 +21,7 @@ function Home() {
   const photo1 = blythe;
   const photo2 = normal;
 
-  const descriptiveText = "Desenvolvedora de software apaixonada por criar soluções eficientes e elegantes, com foco em tecnologias web modernas e uma dedicação constante ao aprendizado e à inovação.";
+  const descriptiveText = "Aspiring full-stack and mobile software developer, focused on solution-oriented development using best practices..";
 
     const technicalSkills = [
     { name: 'JavaScript', icon: <Code size={30} /> },
@@ -45,23 +50,29 @@ function Home() {
 
     const projects = [
     {
-      title: "Projeto de E-commerce",
-      description: "Desenvolvimento de uma plataforma de e-commerce completa com carrinho de compras, sistema de pagamento e gestão de produtos.",
-      imageUrl: "https://placehold.co/600x400/4F46E5/FFFFFF?text=E-commerce",
-      projectUrl: "https://github.com/seu-usuario/seu-projeto-ecommerce"
+      title: "RESTful API hosted with GCP",
+      description: "An API developed with FastAPI to manage students, courses, and enrollments at an educational institution, with Swagger documentation.",
+      imageUrl: GCP,
+      projectUrl: "https://github.com/kyoulau/api-python-docker"
     },
     {
-      title: "Aplicação de Tarefas",
-      description: "Uma aplicação simples e intuitiva para gerenciar tarefas diárias, utilizando React e uma API RESTful para persistência de dados.",
-      imageUrl: "https://placehold.co/600x400/2A4365/FFFFFF?text=To-Do-App",
-      projectUrl: "https://github.com/seu-usuario/seu-projeto-to-do"
+      title: "Constitutional Digital Gamification - Pondera Legal",
+      description: "An innovative project that transforms the study of Constitutional Law into an engaging game experience! 'Choque Jurídico' is an interactive tool for exploring the challenges and conflicts of fundamental rights in the digital age.",
+      imageUrl: PonderaLegal,
+      projectUrl: "https://github.com/maricastroo/ponderalegal"
     },
     {
-      title: "Blog Pessoal",
-      description: "Criação de um blog pessoal responsivo, onde compartilho artigos sobre tecnologia e programação, com sistema de comentários.",
-      imageUrl: "https://placehold.co/600x400/9F7AEA/FFFFFF?text=Blog+Pessoal",
-      projectUrl: "https://github.com/seu-usuario/seu-projeto-blog"
+      title: "Workshop about version control with Git & GitHub",
+      description: "A workshop that covers version control and Git, with a focus on branching and merging, and GitHub as a platform for collaboration and code management.",
+      imageUrl: imagemLaura,
+      projectUrl: "https://www.linkedin.com/posts/laura-santos-costa_ol%C3%A1-rede-querida-aqui-estou-eu-mais-uma-activity-7317631019073851392-SVCB?utm_source=share&utm_medium=member_desktop&rcm=ACoAADib-YEBr93dI0g2sWZvzBxpo2xcb-skepc"
     },
+    {
+      title: "Data Structures with Java",
+      description: "In this Medium post, I dive into the knowledge from my Information Systems degree, showing how to write more efficient Java code by implementing data structures like stacks and queues.",
+      imageUrl: Java,
+      projectUrl: "https://medium.com/@laucosan05/estrutura-de-dados-com-pilhas-e-filas-em-java-6cbe30b68b78"
+    }
   ];
 
   return (
@@ -113,6 +124,24 @@ function Home() {
               <Github size={22} />
             </a>
 
+            <a
+              href="https://medium.com/@laucosan05"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-purple-400 transition-transform duration-300 hover:scale-125"
+            >
+              <FaMedium size={22} />
+            </a>
+
+            <a
+              href='https://open.spotify.com/user/laucurtemusica-br'
+              target="_blank"
+              rel="noopener noreferrer"
+              className='text-white hover:text-purple-400 transition-transform duration-300 hover:scale-125'
+            >
+              <FaSpotify size={22} />
+            </a>
+
             <a 
               href="https://psychedelic-gazelle-22b.notion.site/Laura-Costa-2426d3b3d2158074ae03cdb0c100f462?pvs=143"
               target="_blank"
@@ -128,7 +157,7 @@ function Home() {
               onClick={() => setShowSkills(!showSkills)}
               className="px-6 py-3 bg-purple-800 text-white font-semibold rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-75 transition-all duration-300 flex items-center justify-center mx-auto md:mx-0"
             >
-              Ver minhas Habilidades Técnicas
+              My Technical Skills
               <ChevronDown 
                 size={20} 
                 className={`ml-2 transition-transform duration-300 ${showSkills ? 'rotate-180' : ''}`} 
@@ -145,7 +174,7 @@ function Home() {
               showSkills ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
             }`}
           >
-            <h2 className="text-2xl font-bold mb-6 text-white">Minhas Habilidades</h2>
+            <h2 className="text-2xl font-bold mb-6 text-white">Skills</h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
               {technicalSkills.map((skill, index) => (
                 <div 
@@ -167,7 +196,7 @@ function Home() {
         </div>
         <section className="w-full mt-16 mb-16">
           <div className="container mx-auto">
-            <h2 className="text-4xl font-bold text-center text-white mb-10 font-serif">Meus Principais Projetos</h2>
+            <h2 className="text-4xl font-bold text-center text-white mb-10 font-serif">My Main Projects</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projects.map((project, index) => (
                 <Card
