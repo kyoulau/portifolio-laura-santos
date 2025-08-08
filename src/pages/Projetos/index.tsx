@@ -70,6 +70,16 @@ function Projetos() {
           </div>
             <div className="mt-8 flex gap-4 justify-center md:justify-start">
               <a 
+              href="https://jogo-da-memoria-tau-jet.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer">
+                <p className="text-white hover:text-gray-400">
+                Jogo da Memória Deftones 
+                </p>
+              </a>
+          </div>
+            <div className="mt-8 flex gap-4 justify-center md:justify-start">
+              <a 
               href="https://github.com/kyoulau/Livraria-Cultura/blob/main/src/app/app.config.server.ts"
               target="_blank"
               rel="noopener noreferrer">
