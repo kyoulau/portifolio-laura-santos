@@ -13,7 +13,7 @@ function Header() {
           >
             <Home size={24} />
             <span className="absolute top-full mt-3 px-3 py-1 bg-neutral-700 text-sm text-white rounded-md opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out invisible group-hover:visible whitespace-nowrap">
-              Início
+              Welcome!
             </span>
           </a>
           <a
@@ -22,7 +22,7 @@ function Header() {
           >
             <User size={24} />
             <span className="absolute top-full mt-3 px-3 py-1 bg-neutral-700 text-sm text-white rounded-md opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out invisible group-hover:visible whitespace-nowrap">
-              Sobre Mim
+              About me
             </span>
           </a>
           <a
@@ -31,7 +31,7 @@ function Header() {
           >
             <Briefcase size={24} />
             <span className="absolute top-full mt-3 px-3 py-1 bg-neutral-700 text-sm text-white rounded-md opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out invisible group-hover:visible whitespace-nowrap">
-              Projetos
+              Projects
             </span>
           </a>
           <a
@@ -40,7 +40,7 @@ function Header() {
           >
             <Mail size={24} />
             <span className="absolute top-full mt-3 px-3 py-1 bg-neutral-700 text-sm text-white rounded-md opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out invisible group-hover:visible whitespace-nowrap">
-              Contato
+              Blogs
             </span>
           </a>
         </div>
