@@ -98,7 +98,7 @@ function Projetos() {
                 </p>
               </a>
           </div>
-        </div>
+        </div>      
       </div>
       
     </div>

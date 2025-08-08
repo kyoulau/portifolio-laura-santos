@@ -9,10 +9,11 @@ import {
   MonitorDot, Server, LayoutDashboard, Terminal, Package, Cpu, Zap, Settings, 
   Globe, Type, Smartphone, Rocket, Monitor, Coffee,
 } from 'lucide-react';
-import { FaSpotify, FaMedium } from 'react-icons/fa';
+import { FaSpotify, FaMedium, FaInstagram } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import Card from '../../components/card';
 import { useState } from 'react';
+import Footer from '../../components/footer'
 
 function Home() {
   const [isHovering, setIsHovering] = useState(false);
@@ -142,6 +143,15 @@ function Home() {
               <FaSpotify size={22} />
             </a>
 
+            <a
+              href="https://www.instagram.com/kyoulau/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-pink-400 transition-transform duration-300 hover:scale-125"
+            >
+              <FaInstagram size={22} />
+            </a>
+
             <a 
               href="https://psychedelic-gazelle-22b.notion.site/Laura-Costa-2426d3b3d2158074ae03cdb0c100f462?pvs=143"
               target="_blank"
@@ -210,6 +220,7 @@ function Home() {
             </div>
           </div>
         </section>
+        <Footer/>
       </div>
       
     </div>

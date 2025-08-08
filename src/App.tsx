@@ -1,10 +1,11 @@
 import { createBrowserRouter } from "react-router-dom"
 import NotFound from "./pages/500"
-import Contato from "./pages/Contato"
+import Blogs from "./pages/Blogs"
 import Projetos from "./pages/Projetos"
 import Sobre from "./pages/Sobre"
 import Home from "./pages/Home"
 import { Layout } from "./components/Layout"
+import SinglePostPage from "./pages/Blogs/[id]"
 
 const router = createBrowserRouter([
   {
@@ -23,8 +24,13 @@ const router = createBrowserRouter([
     element: <Projetos />,
   },
   {
-    path: "/contato",
-    element: <Contato />,
+    path: "/blog",
+    element: <Blogs />,
+  },
+  {
+    path: "/blog/:id",
+    element: <SinglePostPage />,
+
   },
   {
     path: "*",

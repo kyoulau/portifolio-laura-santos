@@ -35,7 +35,7 @@ function Header() {
             </span>
           </a>
           <a
-            href="/contato"
+            href="/blog"
             className="group relative flex items-center justify-center p-3 rounded-full text-neutral-300 hover:text-white hover:bg-neutral-700 transition-all duration-300"
           >
             <Mail size={24} />
