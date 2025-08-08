@@ -1,6 +1,4 @@
-import React from 'react';
 import { Home, User, Briefcase, Mail } from 'lucide-react';
-
 function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-neutral-900/60 backdrop-blur-sm shadow-lg font-inter rounded-3xl">
