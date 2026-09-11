@@ -1,31 +1,49 @@
-import { type BlogPostProps } from '../../types/blog';
+import { type BlogPostProps } from "../../types/blog";
 
 const BlogPost = ({ post }: BlogPostProps) => {
   return (
-    <article className="max-w-3xl mx-auto bg-neutral-900 rounded-lg p-8 border border-zinc-800 mt-16">
-      <header className="mb-8 pb-6 border-b border-gray-700">
-        <h1 className="text-3xl font-bold mb-4 text-white">{post.title}</h1>
-        
-        <div className="flex justify-between items-center text-sm">
-          <span className="text-gray-500">
-            Publicado em: {new Date(post.date).toLocaleDateString()}
-          </span>
-          
-          <div className="flex gap-2">
-            {post.tags.map((tag, index) => (
-              <span 
-                key={index} 
-                className="bg-gray-700 text-gray-300 px-3 py-1 rounded-full text-xs"
-              >
-                {tag}
-              </span>
-            ))}
+    <article className="relative mx-auto max-w-3xl border border-ash bg-crypt/60 texture-noise">
+      <div className="flex items-center gap-2 border-b border-ash/70 px-4 py-2.5">
+        <span className="h-2 w-2 rounded-full bg-blood" />
+        <span className="h-2 w-2 rounded-full bg-ash" />
+        <span className="h-2 w-2 rounded-full bg-ash" />
+        <span className="ml-2 font-retro text-[11px] tracking-[0.18em] text-mist uppercase">
+          entry_{post.id}.md
+        </span>
+      </div>
+
+      <div className="p-8 md:p-12">
+        <header className="mb-8 border-b border-ash pb-6">
+          <h1 className="font-display text-3xl leading-snug font-medium text-bone md:text-4xl">
+            {post.title}
+          </h1>
+
+          <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
+            <span className="font-retro text-[11px] tracking-[0.18em] text-mist uppercase">
+              published{" "}
+              {new Date(post.date).toLocaleDateString("en-GB", {
+                year: "numeric",
+                month: "short",
+                day: "2-digit",
+              })}
+            </span>
+
+            <div className="flex flex-wrap gap-2">
+              {post.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="border border-ash/70 px-2.5 py-1 font-retro text-[10px] tracking-[0.14em] text-mist uppercase"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
           </div>
+        </header>
+
+        <div className="prose prose-invert max-w-none text-mist">
+          {post.content}
         </div>
-      </header>
-      
-      <div className="prose prose-invert max-w-none">
-        {post.content}
       </div>
     </article>
   );

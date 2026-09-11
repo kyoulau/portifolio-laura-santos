@@ -6,27 +6,41 @@ interface CardProps {
   imageUrl: string;
   projectUrl: string;
 }
-function Card({ title, description, imageUrl, projectUrl }: CardProps) {
 
+function Card({ title, description, imageUrl, projectUrl }: CardProps) {
   return (
-     <a 
-      href={projectUrl} 
-      target="_blank" 
-      rel="noopener noreferrer" 
-      className="block bg-zinc-700 p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+    <a
+      href={projectUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group relative block border border-ash bg-crypt/60 transition-colors duration-500 hover:border-blood-bright/60"
     >
-      <div className="flex items-center justify-between mb-4">
-        <h3 className="text-xl font-semibold text-white">{title}</h3>
-        <ExternalLink size={20} className="text-purple-400" />
-      </div>
-      <img 
-        src={imageUrl} 
-        alt={`Imagem do projeto ${title}`} 
-        className="w-full h-40 object-cover rounded-md mb-4" 
+      <span
+        aria-hidden="true"
+        className="absolute top-0 bottom-0 left-0 w-px bg-blood-bright/0 transition-colors duration-500 group-hover:bg-blood-bright/70"
       />
-      <p className="text-neutral-300 text-sm">
-        {description}
-      </p>
+
+      <div className="relative overflow-hidden texture-scanlines">
+        <img
+          src={imageUrl}
+          alt={`Imagem do projeto ${title}`}
+          loading="lazy"
+          className="photo-goth aspect-video w-full object-cover"
+        />
+      </div>
+
+      <div className="p-6">
+        <div className="flex items-start justify-between gap-4">
+          <h3 className="font-display text-xl leading-snug font-medium text-bone">
+            {title}
+          </h3>
+          <ExternalLink
+            size={16}
+            className="mt-1.5 shrink-0 text-mist transition-colors duration-300 group-hover:text-blood-bright"
+          />
+        </div>
+        <p className="mt-3 text-sm leading-relaxed text-mist">{description}</p>
+      </div>
     </a>
   );
 }

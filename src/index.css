@@ -1,1 +1,223 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Share+Tech+Mono&family=UnifrakturMaguntia&display=swap");
 @import "tailwindcss";
+
+@theme {
+  /* ——— paleta: cripta, osso e sangue ——— */
+  --color-ink: #07060a;
+  --color-crypt: #0d0a11;
+  --color-tomb: #14101a;
+  --color-ash: #2a2330;
+  --color-bone: #ece6e3;
+  --color-mist: #a2949f;
+  --color-blood: #a1122f;
+  --color-blood-bright: #d4183d;
+  --color-crt: #e0a33c;
+
+  /* ——— tipografia ——— */
+  --font-display: "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-retro: "Share Tech Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-blackletter: "UnifrakturMaguntia", ui-serif, Georgia, serif;
+}
+
+/* ————————————————————————————————
+   Base
+   ———————————————————————————————— */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-ink);
+    color: var(--color-bone);
+    font-family: var(--font-display);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: var(--color-blood);
+    color: var(--color-bone);
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-ink);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-ash);
+    border: 2px solid var(--color-ink);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-blood);
+  }
+}
+
+/* ————————————————————————————————
+   Texturas: grão de filme, scanlines de CRT, vinheta
+   ———————————————————————————————— */
+.texture-noise::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.22;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.texture-scanlines::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.32) 0px,
+    rgba(0, 0, 0, 0.32) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+}
+
+.texture-vignette::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 45%,
+    rgba(7, 6, 10, 0.75) 100%
+  );
+}
+
+/* Malha milimetrada de fundo, tipo monitor antigo */
+.texture-grid {
+  background-image:
+    linear-gradient(to right, rgba(161, 18, 47, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(161, 18, 47, 0.07) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* ————————————————————————————————
+   Tratamento das fotos
+   ———————————————————————————————— */
+.photo-goth {
+  filter: grayscale(0.55) contrast(1.12) brightness(0.82) sepia(0.12);
+  transition: filter 700ms ease, transform 700ms ease;
+}
+
+.group:hover .photo-goth {
+  filter: grayscale(0.1) contrast(1.05) brightness(0.95) sepia(0);
+  transform: scale(1.03);
+}
+
+/* ————————————————————————————————
+   Brilhos e traços
+   ———————————————————————————————— */
+.glow-blood {
+  text-shadow:
+    0 0 14px rgba(212, 24, 61, 0.45),
+    0 0 42px rgba(161, 18, 47, 0.25);
+}
+
+.glow-crt {
+  text-shadow: 0 0 12px rgba(224, 163, 60, 0.45);
+}
+
+.rule-ornate {
+  background-image: linear-gradient(
+    to right,
+    transparent,
+    var(--color-ash) 18%,
+    var(--color-ash) 82%,
+    transparent
+  );
+}
+
+/* ————————————————————————————————
+   Animações
+   ———————————————————————————————— */
+@keyframes caret-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.animate-caret {
+  animation: caret-blink 1.05s steps(1) infinite;
+}
+
+@keyframes crt-flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  92% {
+    opacity: 1;
+  }
+  94% {
+    opacity: 0.72;
+  }
+  96% {
+    opacity: 1;
+  }
+  97% {
+    opacity: 0.85;
+  }
+}
+
+.animate-flicker {
+  animation: crt-flicker 6.5s linear infinite;
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-drift {
+  animation: drift 7s ease-in-out infinite;
+}
+
+/* Reveal ao entrar na viewport */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 900ms ease, transform 900ms cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-caret,
+  .animate-flicker,
+  .animate-drift {
+    animation: none;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

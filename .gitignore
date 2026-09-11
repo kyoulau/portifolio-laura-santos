@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Personal documents (not used by the app, kept out of the public repo)
+src/images/*.pdf
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

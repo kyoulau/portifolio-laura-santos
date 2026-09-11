@@ -1,43 +1,69 @@
-import { Link } from 'react-router-dom';
-import { type BlogListProps } from '../../types/blog'
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
+import { type BlogListProps } from "../../types/blog";
+import Reveal from "../Reveal";
 
 const BlogList = ({ posts }: BlogListProps) => {
   return (
-    <div className="max-w-6xl mx-auto mt-12">
-      <h1 className="text-4xl font-bold text-center mb-12 text-white">My blogs</h1>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {posts.map((post) => (
-          <Link 
-            to={`/blog/${post.id}`} 
-            key={post.id}
-            className="group"
+    <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+      {posts.map((post, index) => (
+        <Reveal key={post.id} delay={index * 80}>
+          <Link
+            to={`/blog/${post.id}`}
+            className="group relative block h-full border border-ash bg-crypt/60 p-6 transition-colors duration-500 hover:border-blood-bright/60 md:p-7"
           >
-            <div className="h-full bg-neutral-900 rounded-lg p-6 border border-stone-800 transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-lg group-hover:border-gray-600">
-              <h2 className="text-xl font-semibold mb-2 text-white group-hover:text-gray-500 transition">
-                {post.title}
-              </h2>
-              <p className="text-gray-400 mb-4">{post.excerpt}</p>
-              
-              <div className="flex justify-between items-center mt-auto">
-                <span className="text-sm text-gray-500">
-                  {new Date(post.date).toLocaleDateString()}
-                </span>
-                <div className="flex gap-2">
-                  {post.tags.map((tag, index) => (
-                    <span 
-                      key={index} 
-                      className="text-xs bg-indigo-950 text-gray-300 px-2 py-1 rounded"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+            <span
+              aria-hidden="true"
+              className="absolute top-0 bottom-0 left-0 w-px bg-blood-bright/0 transition-colors duration-500 group-hover:bg-blood-bright/70"
+            />
+
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <span className="font-retro text-[11px] tracking-[0.18em] text-mist uppercase">
+                {new Date(post.date).toLocaleDateString("en-GB", {
+                  year: "numeric",
+                  month: "short",
+                  day: "2-digit",
+                })}
+              </span>
+              <div className="flex flex-wrap gap-2">
+                {post.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="border border-ash/70 px-2.5 py-1 font-retro text-[10px] tracking-[0.14em] text-mist uppercase"
+                  >
+                    {tag}
+                  </span>
+                ))}
               </div>
             </div>
+
+            <h2 className="mt-4 font-display text-2xl leading-snug font-medium text-bone transition-colors duration-300 group-hover:text-blood-bright md:text-3xl">
+              {post.title}
+            </h2>
+
+            <p className="mt-3 text-[15px] leading-relaxed text-mist">
+              {post.excerpt}
+            </p>
+
+            <span className="mt-6 inline-flex items-center gap-1.5 font-retro text-[11px] tracking-[0.18em] text-crt uppercase">
+              read entry
+              <ArrowRight
+                size={13}
+                className="transition-transform duration-300 group-hover:translate-x-1"
+              />
+            </span>
           </Link>
-        ))}
-      </div>
+        </Reveal>
+      ))}
+
+      <Reveal delay={posts.length * 80}>
+        <div className="flex h-full min-h-[220px] flex-col items-center justify-center border border-dashed border-ash/70 p-6 text-center">
+          <p className="font-retro text-[12px] tracking-[0.2em] text-mist/60 uppercase">
+            more entries brewing
+            <span className="animate-caret ml-1 text-blood-bright">█</span>
+          </p>
+        </div>
+      </Reveal>
     </div>
   );
 };
